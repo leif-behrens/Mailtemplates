@@ -460,6 +460,15 @@ class TemplateGUI(QMainWindow):
 
         self.current_template = self.lw_templates.currentItem().text()
         self.dialog.close()
+        
+        self.le_price.clear()
+        self.de_date.setDateTime(QDateTime.currentDateTime())
+        self.le_name.clear()
+        self.rb_anrede_herr.setChecked(True)
+
+        attributes = ("a", "d", "p")
+        for a in attributes:
+            self.findChild(QCheckBox, "checkbox_edit_{}".format(a)).setChecked(False)
 
         self.lb_chosen_template.setText(f"{self.current_template}")
 
@@ -482,7 +491,7 @@ class TemplateGUI(QMainWindow):
         else:
             self.de_date.setDisabled(True)
         
-        self.sex = ""
+        self.sex = "geehrter " + self.rb_anrede_herr.text()
         self.name = ""
         self.anrede = self.sex + self.name
         self.datum = self.de_date.date().toPyDate().strftime("%d.%m.%Y")
