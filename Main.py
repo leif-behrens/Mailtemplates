@@ -22,7 +22,7 @@ class TemplateGUI(QMainWindow):
         
         self.current_template = ""
         self.lb_status = QLabel(self)
-        self.lb_status.setGeometry(QRect(self.x/2-150, self.y-35, 300, 25))
+        self.lb_status.setGeometry(QRect(15, self.y-35, self.x - 30, 25))
 
         self.initUI()
 
@@ -161,7 +161,7 @@ class TemplateGUI(QMainWindow):
         self.le_price.setGeometry(QRect(10, 225, 100, 25))
 
         self.btn_copy = QPushButton("Kopieren", self.gb_copy_template)
-        self.btn_copy.setGeometry(QRect(10, self.y-75, 80, 25))
+        self.btn_copy.setGeometry(QRect(10, self.y-100, 80, 25))
 
         self.lb_current_text = QLabel("Aktuelle Vorlage:", self.gb_copy_template)
         self.lb_current_text.setGeometry(QRect((self.x-20)/2-30, 15, 200, 25))
